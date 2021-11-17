@@ -7,10 +7,10 @@ namespace Funzioni
         public string nome;
         public string cognome;
         public int eta;
-        public string sport;
+        public Sport sport;
         public int medaglie;
 
-        public Atleta(string nome, string cognome, int eta, string sport, int medaglie)
+        public Atleta(string nome, string cognome, int eta, Sport sport, int medaglie)
         {
             this.nome = nome;
             this.cognome = cognome;
@@ -23,7 +23,7 @@ namespace Funzioni
         {
             return this.nome + " " + this.cognome + "\n" +
                    "Età: " + this.eta + "\n" +
-                   "Sport: " + this.sport + "\n" +
+                     this.sport + "\n" +
                    "Medaglie: " + this.medaglie + "\n";
         }
         
@@ -43,16 +43,28 @@ namespace Funzioni
             }
         }
 
-        public static int OrdinaAtletiPerSportAZ(Atleta a1, Atleta a2)
+        public static int OrdinaAtletiPerDisciplinaSportAZ(Atleta a1, Atleta a2)
         {
-            return a1.sport.CompareTo(a2.sport);
+            return a1.sport.disciplina.CompareTo(a2.sport.disciplina);
         }
 
 
-        public static int OrdinaAtletiPerSportZA(Atleta a1, Atleta a2)
+        public static int OrdinaAtletiPerDisciplinaSportZA(Atleta a1, Atleta a2)
         {
-            return -a1.sport.CompareTo(a2.sport);
+            return -a1.sport.disciplina.CompareTo(a2.sport.disciplina);
         }
+
+        public static int OrdinaAtletiPerLivelloSportAZ(Atleta a1, Atleta a2)
+        {
+            return a1.sport.livello.CompareTo(a2.sport.livello);
+        }
+
+        public static int OrdinaAtletiPerLivelloSportZA(Atleta a1, Atleta a2)
+        {
+            return -a1.sport.livello.CompareTo(a2.sport.livello);
+        }
+
+
 
         public static int OrdinaAtletiPerEtaEnomeSeEtaUguale(Atleta a1, Atleta a2)
         {
